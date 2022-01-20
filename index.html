@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    
+</head>
+<body>
+    <div class="box" id="app">
+        <div class="head">
+            <h2>图书管理</h2>
+            <input type="text" placeholder="请输入图书id" v-focus v-model="id" :disabled="idFlag">
+            <input type="text" placeholder="请输入图书名称" v-model="name">
+            <button @click="BooksHandle">提交</button>
+        </div>
+        <table width="50%" class="table">
+            <thead>
+                <tr>
+                    <th style="width: 25px;">图书编号</th>
+                    <th>图书名称</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tr :key="item.id" v-for="(item) in books">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>
+                    <a href="" @click.prevent="edit(item.id)">编辑</a>
+                    <a href="" @click.prevent>删除</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script src="./vue.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
